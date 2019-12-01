@@ -23,6 +23,17 @@ const news = [
   }
 ];
 
+function getTitle() {
+  let newsItem = document.querySelectorAll('li');
+  let newsTitle = document.querySelectorAll('.news__title');
+  for (let i = 0; i < newsTitle.length; i++) {
+    if (newsTitle[i].innerHTML.includes('Mars') || newsTitle[i].innerHTML.includes('Martian')) {
+      newsItem[i].classList.remove('news__item');
+      newsItem[i].classList.add('news__item--from-mars');
+    }
+  }
+}
+
 const newsUl = document.querySelector('.js-news');
 function fillForm() {
   for (let i = 0; i < news.length; i++) {
@@ -32,5 +43,8 @@ function fillForm() {
     htmlContent += '</li>';
   }
   newsUl.innerHTML = htmlContent;
+  getTitle();
 }
+
+
 fillForm();
