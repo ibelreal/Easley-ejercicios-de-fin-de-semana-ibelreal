@@ -1,5 +1,5 @@
 'use strict';
-
+let htmlContent = '';
 const news = [
   {
     title: 'Asteroids 101',
@@ -22,3 +22,15 @@ const news = [
     image: 'https://via.placeholder.com/200x100'
   }
 ];
+
+const newsUl = document.querySelector('.js-news');
+function fillForm() {
+  for (let i = 0; i < news.length; i++) {
+    htmlContent += '<li class="news__item">';
+    htmlContent += `<h2 class="news__title">${news[i].title}</h2>`;
+    htmlContent += `<img class="news__image" src="${news[i].image}" alt="${news[i].title}">`;
+    htmlContent += '</li>';
+  }
+  newsUl.innerHTML = htmlContent;
+}
+fillForm();
